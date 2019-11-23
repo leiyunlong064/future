@@ -1,0 +1,49 @@
+ext {
+    ver = [
+            spring                : '5.1.7.RELEASE',
+            spring_boot           : '2.1.5.RELEASE',
+
+            aspectj               : '1.9.4',
+
+            commons_lang3         : '3.9',
+
+            propdeps_plugin       : '0.0.10.RELEASE',
+
+            springfox_swagger2    : '2.6.1',
+            springfox_swagger_ui  : '2.6.1',
+
+            java_jwt         : '3.8.3',
+
+    ]
+
+    lib = [
+            spring_boot_starter          : "org.springframework.boot:spring-boot-starter:$ver.spring_boot",
+            spring_boot_starter_jdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$ver.spring_boot",
+            spring_boot_starter_web      : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
+            spring_boot_starter_aop      : "org.springframework.boot:spring-boot-starter-aop:$ver.spring_boot",
+
+            spring_webmvc                : "org.springframework:spring-webmvc:$ver.spring",
+
+            aspectjrt                    : "org.aspectj:aspectjrt:$ver.aspectj",
+            aspectjweaver                : "org.aspectj:aspectjweaver:$ver.aspectj",
+
+            commons_lang3                : "org.apache.commons:commons-lang3:$ver.commons_lang3",
+
+            spring_boot_gradle_plugin    : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
+            propdeps_plugin              : "io.spring.gradle:propdeps-plugin:$ver.propdeps_plugin",
+
+            spring_boot_starter_test     : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
+
+            springfox_swagger2           : "io.springfox:springfox-swagger2:$ver.springfox_swagger2",
+            springfox_swagger_ui         : "io.springfox:springfox-swagger-ui:$ver.springfox_swagger_ui",
+
+            java_jwt                 : "com.auth0:java-jwt:$ver.java_jwt",
+
+    ]
+
+    libGroup = [
+            aspectj: [
+                    "$lib.aspectjrt", "$lib.aspectjweaver"
+            ]
+    ]
+}

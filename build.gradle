@@ -1,0 +1,52 @@
+buildscript {
+    apply from: "$rootDir/deps.gradle"
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "http://repo.spring.io/plugins-release" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath lib.spring_boot_gradle_plugin
+        classpath lib.propdeps_plugin
+    }
+}
+
+allprojects {
+    defaultTasks 'clean', 'build', 'testClasses'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "http://repo.spring.io/plugins-release" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-maven'
+    apply plugin: 'propdeps-idea'
+    apply plugin: 'io.spring.dependency-management'
+}
+
+subprojects {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    compileJava.options.encoding = 'UTF-8'
+    compileTestJava.options.encoding = 'UTF-8'
+
+    dependencies {
+        testImplementation lib.spring_boot_starter_test
+    }
+}
+
+wrapper {
+    gradleVersion = '5.4.1'
+}

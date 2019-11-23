@@ -1,0 +1,7 @@
+dependencies {
+    api lib.spring_boot_starter_web
+    api lib.springfox_swagger2
+    api lib.springfox_swagger_ui
+
+    api lib.java_jwt
+}
