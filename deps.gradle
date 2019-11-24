@@ -1,43 +1,68 @@
 ext {
     ver = [
-            spring                : '5.1.7.RELEASE',
-            spring_boot           : '2.1.5.RELEASE',
+            spring              : '5.1.7.RELEASE',
+            spring_boot         : '2.1.5.RELEASE',
 
-            aspectj               : '1.9.4',
+            aspectj             : '1.9.4',
 
-            commons_lang3         : '3.9',
+            postgresql          : '42.2.1',
+//            mysql               : '8.0.16',
+            hikaricp            : '3.2.0',
+            mybatis             : '3.5.1',
+            mybatis_spring      : '2.0.1',
+            pagehelper          : '5.1.8',
+            flyway              : '5.2.1',
 
-            propdeps_plugin       : '0.0.10.RELEASE',
+            jackson             : '2.9.8',
+            okhttp              : '3.12.3',
+            commons_lang3       : '3.9',
 
-            springfox_swagger2    : '2.6.1',
-            springfox_swagger_ui  : '2.6.1',
+            propdeps_plugin     : '0.0.10.RELEASE',
 
-            java_jwt         : '3.8.3',
+            springfox_swagger2  : '2.6.1',
+            springfox_swagger_ui: '2.6.1',
+
+            java_jwt            : '3.8.3',
+
 
     ]
 
     lib = [
-            spring_boot_starter          : "org.springframework.boot:spring-boot-starter:$ver.spring_boot",
-            spring_boot_starter_jdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$ver.spring_boot",
-            spring_boot_starter_web      : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
-            spring_boot_starter_aop      : "org.springframework.boot:spring-boot-starter-aop:$ver.spring_boot",
+            spring_boot_starter       : "org.springframework.boot:spring-boot-starter:$ver.spring_boot",
+            spring_boot_starter_jdbc  : "org.springframework.boot:spring-boot-starter-jdbc:$ver.spring_boot",
+            spring_boot_starter_web   : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
+            spring_boot_starter_aop   : "org.springframework.boot:spring-boot-starter-aop:$ver.spring_boot",
+            spring_boot_devtools      : "org.springframework.boot:spring-boot-devtools:$ver.spring_boot",
 
-            spring_webmvc                : "org.springframework:spring-webmvc:$ver.spring",
+            spring_webmvc             : "org.springframework:spring-webmvc:$ver.spring",
 
-            aspectjrt                    : "org.aspectj:aspectjrt:$ver.aspectj",
-            aspectjweaver                : "org.aspectj:aspectjweaver:$ver.aspectj",
+            aspectjrt                 : "org.aspectj:aspectjrt:$ver.aspectj",
+            aspectjweaver             : "org.aspectj:aspectjweaver:$ver.aspectj",
 
-            commons_lang3                : "org.apache.commons:commons-lang3:$ver.commons_lang3",
+            postgresql                : "org.postgresql:postgresql:$ver.postgresql",
+//            mysql_connector_java      : "mysql:mysql-connector-java:$ver.mysql",
+            hikaricp                  : "com.zaxxer:HikariCP:$ver.hikaricp",
+            mybatis                   : "org.mybatis:mybatis:$ver.mybatis",
+            mybatis_spring            : "org.mybatis:mybatis-spring:$ver.mybatis_spring",
+            pagehelper                : "com.github.pagehelper:pagehelper:$ver.pagehelper",
+            flyway_core               : "org.flywaydb:flyway-core:$ver.flyway",
 
-            spring_boot_gradle_plugin    : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
-            propdeps_plugin              : "io.spring.gradle:propdeps-plugin:$ver.propdeps_plugin",
+            jackson_module_afterburner: "com.fasterxml.jackson.module:jackson-module-afterburner:$ver.jackson",
+            jackson_annotations       : "com.fasterxml.jackson.core:jackson-annotations:$ver.jackson",
+            jackson_core              : "com.fasterxml.jackson.core:jackson-core:$ver.jackson",
+            jackson_databind          : "com.fasterxml.jackson.core:jackson-databind:$ver.jackson",
+            okhttp                    : "com.squareup.okhttp3:okhttp:$ver.okhttp",
+            commons_lang3             : "org.apache.commons:commons-lang3:$ver.commons_lang3",
 
-            spring_boot_starter_test     : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
+            spring_boot_gradle_plugin : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
+            propdeps_plugin           : "io.spring.gradle:propdeps-plugin:$ver.propdeps_plugin",
 
-            springfox_swagger2           : "io.springfox:springfox-swagger2:$ver.springfox_swagger2",
-            springfox_swagger_ui         : "io.springfox:springfox-swagger-ui:$ver.springfox_swagger_ui",
+            spring_boot_starter_test  : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
 
-            java_jwt                 : "com.auth0:java-jwt:$ver.java_jwt",
+            springfox_swagger2        : "io.springfox:springfox-swagger2:$ver.springfox_swagger2",
+            springfox_swagger_ui      : "io.springfox:springfox-swagger-ui:$ver.springfox_swagger_ui",
+
+            java_jwt                  : "com.auth0:java-jwt:$ver.java_jwt",
 
     ]
 

@@ -1,0 +1,25 @@
+dependencies {
+    api lib.spring_boot_starter_jdbc
+
+    api lib.postgresql
+    api lib.hikaricp
+
+    api lib.mybatis
+    api lib.mybatis_spring
+    api lib.pagehelper
+
+    api lib.jackson_module_afterburner
+    api lib.okhttp
+    api lib.commons_lang3
+
+    compile(lib.flyway_core)
+
+    api project(':app-common')
+}
+
+task copyBuildJar(type: Copy){
+    from "$rootDir/api-core/build/libs/app-core.jar"
+    into "$rootDir/flay/jars"
+}
+
+build.finalizedBy copyBuildJar

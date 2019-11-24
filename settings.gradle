@@ -1,3 +1,6 @@
 rootProject.name = 'future'
 include 'app-api'
+include 'app-common'
+include 'app-biz'
+include 'app-core'
 
