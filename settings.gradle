@@ -1,4 +1,4 @@
-rootProject.name = 'future'
+rootProject.name = 'sand'
 include 'app-api'
 include 'app-common'
 include 'app-biz'
