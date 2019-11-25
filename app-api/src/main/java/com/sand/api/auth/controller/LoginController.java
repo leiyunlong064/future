@@ -2,8 +2,11 @@ package com.sand.api.auth.controller;
 
 import com.sand.api.annotation.CheckToken;
 import com.sand.api.utils.JwtUtils;
+import com.sand.biz.system.LoginService;
+import com.sand.biz.system.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -18,23 +21,19 @@ import java.util.Map;
 @RequestMapping("/auth")
 @RestController
 public class LoginController {
-    private final static Map<String, String> userMap = new HashMap<>();
-    private final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-    @PostConstruct
-    private void init(){
-        userMap.put("admin","123456");
-        userMap.put("jason", "123456");
+    @Autowired
+    private LoginService loginService;
+
+    public String register(@RequestParam("mobile") String mobile,
+                           @RequestParam("password") String password){
+        return loginService.register(mobile, password);
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("userName") String userName,
+    public String login(@RequestParam("mobile") String mobile,
                         @RequestParam("password") String password){
-        if(!userMap.get(userName).equals(password)){
-            throw new RuntimeException("UNAUTHORIZED");
-        }
-
-        return JwtUtils.generateJWT("121212",userName);
+        return loginService.login(mobile, password);
     }
 
     @CheckToken

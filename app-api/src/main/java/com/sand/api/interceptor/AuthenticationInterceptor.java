@@ -5,7 +5,7 @@ package com.sand.api.interceptor;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.sand.api.annotation.CheckToken;
-import com.sand.api.utils.JwtUtils;
+import com.sand.biz.utils.JwtUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;

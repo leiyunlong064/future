@@ -4,11 +4,12 @@ import com.sand.common.enums.UserStatus;
 
 import java.util.Date;
 
-public class SystemUser {
+public class User {
     private Long userId;
     private String name;
     private String mobile;
     private String password;
+    private String salt;
     private UserStatus status;
     private Date createTime;
     private Date updateTime;
@@ -17,7 +18,7 @@ public class SystemUser {
         return userId;
     }
 
-    public SystemUser setUserId(Long userId) {
+    public User setUserId(Long userId) {
         this.userId = userId;
         return this;
     }
@@ -26,7 +27,7 @@ public class SystemUser {
         return name;
     }
 
-    public SystemUser setName(String name) {
+    public User setName(String name) {
         this.name = name;
         return this;
     }
@@ -35,7 +36,7 @@ public class SystemUser {
         return mobile;
     }
 
-    public SystemUser setMobile(String mobile) {
+    public User setMobile(String mobile) {
         this.mobile = mobile;
         return this;
     }
@@ -44,8 +45,17 @@ public class SystemUser {
         return password;
     }
 
-    public SystemUser setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public User setSalt(String salt) {
+        this.salt = salt;
         return this;
     }
 
@@ -53,7 +63,7 @@ public class SystemUser {
         return status;
     }
 
-    public SystemUser setStatus(UserStatus status) {
+    public User setStatus(UserStatus status) {
         this.status = status;
         return this;
     }
@@ -62,7 +72,7 @@ public class SystemUser {
         return createTime;
     }
 
-    public SystemUser setCreateTime(Date createTime) {
+    public User setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -71,7 +81,7 @@ public class SystemUser {
         return updateTime;
     }
 
-    public SystemUser setUpdateTime(Date updateTime) {
+    public User setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
         return this;
     }

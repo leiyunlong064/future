@@ -1,15 +1,15 @@
 package com.sand.core.system.providers;
 
-import com.sand.common.entity.SystemUser;
+import com.sand.common.entity.User;
 import com.sand.core.repositories.SQL;
 import org.springframework.util.StringUtils;
 
 public class UserSqlProvider {
     private String getEntityTable() {
-        return "T_SYSTEM_USER";
+        return "T_USER";
     }
 
-    public String save(SystemUser user) {
+    public String save(User user) {
         return new SQL()
                 .INSERT_INTO(getEntityTable())
                 .VALUES("USER_ID", "#{userId}")
@@ -22,7 +22,7 @@ public class UserSqlProvider {
                 .toString();
     }
 
-    public String update(SystemUser user) {
+    public String update(User user) {
         return new SQL()
                 .UPDATE(getEntityTable())
                 .SET_IF("NAME = #{name}", !StringUtils.isEmpty(user.getName()))
@@ -49,7 +49,7 @@ public class UserSqlProvider {
                 .toString();
     }
 
-    public String findList(SystemUser user) {
+    public String findList(User user) {
         return new SQL()
                 .SELECT("*")
                 .FROM(getEntityTable())

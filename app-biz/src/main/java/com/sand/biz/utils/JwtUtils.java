@@ -1,4 +1,4 @@
-package com.sand.api.utils;
+package com.sand.biz.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -20,10 +20,9 @@ public class JwtUtils {
     /**
      * 生成JWT字符串
      * @param userId
-     * @param userName
      * @return
      */
-    public static String generateJWT(String userId, String userName){
+    public static String generateJWT(String userId){
         Date now = new Date();
         Date expireDate = new Date(now.getTime() + JwtConstants.EXPIRE_TIME);
 
