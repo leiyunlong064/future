@@ -1,10 +1,9 @@
 package com.sand.api.interceptor;
 
-
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.sand.api.annotation.CheckToken;
+import com.sand.biz.exception.LoginException;
 import com.sand.biz.utils.JwtUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Component;
@@ -23,28 +22,26 @@ import java.lang.reflect.Method;
 @Component
 public class AuthenticationInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
-        HandlerMethod handlerMethod = (HandlerMethod)handler;
+        HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
-        if(method.isAnnotationPresent(CheckToken.class)){
+        if (method.isAnnotationPresent(CheckToken.class)) {
             CheckToken checkToken = method.getAnnotation(CheckToken.class);
-            if(checkToken.required()){
+            if (checkToken.required()) {
                 String token = request.getHeader("token");
-                if(Strings.isEmpty(token)){
-                    throw new RuntimeException("无token");
+                if (Strings.isEmpty(token)) {
+                    throw new LoginException("no token");
                 }
 
-                if(!JwtUtils.checkJWT(token)){
-                    throw new RuntimeException("token 无效");
+                if (!JwtUtils.checkJWT(token)) {
+                    throw new LoginException("token invalid");
                 }
 
                 try {
                     String userId = JWT.decode(token).getAudience().get(0);
-                }
-                catch (JWTDecodeException ex){
-                    throw new RuntimeException("401");
+                } catch (JWTDecodeException ex) {
+                    throw new LoginException("token invalid");
                 }
                 return true;
             }

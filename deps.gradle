@@ -24,7 +24,7 @@ ext {
 
             java_jwt            : '3.8.3',
 
-
+            caffeine            : '2.8.0',
     ]
 
     lib = [
@@ -32,7 +32,10 @@ ext {
             spring_boot_starter_jdbc  : "org.springframework.boot:spring-boot-starter-jdbc:$ver.spring_boot",
             spring_boot_starter_web   : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
             spring_boot_starter_aop   : "org.springframework.boot:spring-boot-starter-aop:$ver.spring_boot",
+            spring_boot_starter_cache : "org.springframework.boot:spring-boot-starter-cache:$ver.spring_boot",
             spring_boot_devtools      : "org.springframework.boot:spring-boot-devtools:$ver.spring_boot",
+            spring_boot_starter_test  : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
+            spring_boot_gradle_plugin : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
 
             spring_webmvc             : "org.springframework:spring-webmvc:$ver.spring",
 
@@ -54,15 +57,15 @@ ext {
             okhttp                    : "com.squareup.okhttp3:okhttp:$ver.okhttp",
             commons_lang3             : "org.apache.commons:commons-lang3:$ver.commons_lang3",
 
-            spring_boot_gradle_plugin : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
             propdeps_plugin           : "io.spring.gradle:propdeps-plugin:$ver.propdeps_plugin",
 
-            spring_boot_starter_test  : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
 
             springfox_swagger2        : "io.springfox:springfox-swagger2:$ver.springfox_swagger2",
             springfox_swagger_ui      : "io.springfox:springfox-swagger-ui:$ver.springfox_swagger_ui",
 
             java_jwt                  : "com.auth0:java-jwt:$ver.java_jwt",
+
+            caffeine                  : "com.github.ben-manes.caffeine:caffeine:$ver.caffeine",
 
     ]
 

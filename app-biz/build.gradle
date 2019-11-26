@@ -1,5 +1,7 @@
 dependencies {
     api lib.java_jwt
-
+    api lib.caffeine
+    api lib.spring_boot_starter_cache
+    
     api project(':app-core')
 }

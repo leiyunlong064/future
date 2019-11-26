@@ -1,22 +1,30 @@
 package com.sand.biz.system;
 
+import com.sand.biz.config.CacheConfig;
+import com.sand.biz.exception.LoginException;
 import com.sand.biz.utils.JwtUtils;
 import com.sand.biz.utils.MD5Util;
 import com.sand.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
-import java.security.MessageDigest;
-import java.util.Base64;
 import java.util.Date;
 
 @Service
 public class LoginService {
 
-    private static final String USER_PASSWORD_SECRET = "aewedsdfwefesmkxcgy";
+    private Cache tokenCache;
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private CacheManager cacheManager;
+
+    public void init(){
+        tokenCache = cacheManager.getCache(CacheConfig.TOKEN_CACHE);
+    }
 
     public synchronized String register(String mobile, String password){
         User user = userService.getUserByMobile(mobile);
@@ -36,12 +44,14 @@ public class LoginService {
     public String login(String mobile, String password){
         User user = userService.getUserByMobile(mobile);
         if(user == null){
-            throw new RuntimeException("user not exist");
+            throw new LoginException("user not exist");
         }
         if(!checkPassword(password, user)){
-            throw new RuntimeException("password error.");
+            throw new LoginException("password error.");
         }
-        return JwtUtils.generateJWT(user.getUserId().toString());
+        String token = JwtUtils.generateJWT(user.getUserId().toString());
+        tokenCache.put(token, user);
+        return token;
     }
 
     private String generateSalt(String username) {

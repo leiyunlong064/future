@@ -13,6 +13,7 @@ dependencies {
     api lib.commons_lang3
 
     compile(lib.flyway_core)
+    compile(libGroup.aspectj)
 
     api project(':app-common')
 }
