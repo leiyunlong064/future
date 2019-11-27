@@ -1,0 +1,5 @@
+dependencies{
+    api lib.spring_boot_starter_quartz
+    
+    api project(':app-biz')
+}

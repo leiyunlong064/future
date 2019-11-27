@@ -1,0 +1,12 @@
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies{
+    api lib.spring_boot_starter_web
+    api lib.spring_boot_starter_thymeleaf
+    api lib.spring_boot_starter_aop
+    api lib.shiro_core
+    api lib.shiro_spring
+    api project(':app-biz')
+}

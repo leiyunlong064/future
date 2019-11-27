@@ -1,17 +1,9 @@
 package com.sand.api.auth.controller;
 
 import com.sand.api.annotation.CheckToken;
-import com.sand.api.utils.JwtUtils;
 import com.sand.biz.system.LoginService;
-import com.sand.biz.system.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.PostConstruct;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @description

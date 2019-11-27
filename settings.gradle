@@ -3,4 +3,6 @@ include 'app-api'
 include 'app-common'
 include 'app-biz'
 include 'app-core'
+include 'app-job'
+include 'app-mgt'
 

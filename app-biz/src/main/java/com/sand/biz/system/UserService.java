@@ -41,7 +41,7 @@ public class UserService {
     public PageInfo<User> getUserListByPage(User user, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<User> list = userMapper.findList(user);
-        PageInfo page = new PageInfo(list);
+        PageInfo<User> page = new PageInfo<>(list);
         return page;
     }
 

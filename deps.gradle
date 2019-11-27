@@ -25,47 +25,53 @@ ext {
             java_jwt            : '3.8.3',
 
             caffeine            : '2.8.0',
+            shiro               : '1.4.1',
     ]
 
     lib = [
-            spring_boot_starter       : "org.springframework.boot:spring-boot-starter:$ver.spring_boot",
-            spring_boot_starter_jdbc  : "org.springframework.boot:spring-boot-starter-jdbc:$ver.spring_boot",
-            spring_boot_starter_web   : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
-            spring_boot_starter_aop   : "org.springframework.boot:spring-boot-starter-aop:$ver.spring_boot",
-            spring_boot_starter_cache : "org.springframework.boot:spring-boot-starter-cache:$ver.spring_boot",
-            spring_boot_devtools      : "org.springframework.boot:spring-boot-devtools:$ver.spring_boot",
-            spring_boot_starter_test  : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
-            spring_boot_gradle_plugin : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
+            spring_boot_starter          : "org.springframework.boot:spring-boot-starter:$ver.spring_boot",
+            spring_boot_starter_jdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$ver.spring_boot",
+            spring_boot_starter_web      : "org.springframework.boot:spring-boot-starter-web:$ver.spring_boot",
+            spring_boot_starter_aop      : "org.springframework.boot:spring-boot-starter-aop:$ver.spring_boot",
+            spring_boot_starter_cache    : "org.springframework.boot:spring-boot-starter-cache:$ver.spring_boot",
+            spring_boot_devtools         : "org.springframework.boot:spring-boot-devtools:$ver.spring_boot",
+            spring_boot_starter_test     : "org.springframework.boot:spring-boot-starter-test:$ver.spring_boot",
+            spring_boot_gradle_plugin    : "org.springframework.boot:spring-boot-gradle-plugin:$ver.spring_boot",
+            spring_boot_starter_quartz   : "org.springframework.boot:spring-boot-starter-quartz:$ver.spring_boot",
+            spring_boot_starter_thymeleaf: "org.springframework.boot:spring-boot-starter-thymeleaf:$ver.spring_boot",
 
-            spring_webmvc             : "org.springframework:spring-webmvc:$ver.spring",
+            spring_webmvc                : "org.springframework:spring-webmvc:$ver.spring",
 
-            aspectjrt                 : "org.aspectj:aspectjrt:$ver.aspectj",
-            aspectjweaver             : "org.aspectj:aspectjweaver:$ver.aspectj",
+            aspectjrt                    : "org.aspectj:aspectjrt:$ver.aspectj",
+            aspectjweaver                : "org.aspectj:aspectjweaver:$ver.aspectj",
 
-            postgresql                : "org.postgresql:postgresql:$ver.postgresql",
+            postgresql                   : "org.postgresql:postgresql:$ver.postgresql",
 //            mysql_connector_java      : "mysql:mysql-connector-java:$ver.mysql",
-            hikaricp                  : "com.zaxxer:HikariCP:$ver.hikaricp",
-            mybatis                   : "org.mybatis:mybatis:$ver.mybatis",
-            mybatis_spring            : "org.mybatis:mybatis-spring:$ver.mybatis_spring",
-            pagehelper                : "com.github.pagehelper:pagehelper:$ver.pagehelper",
-            flyway_core               : "org.flywaydb:flyway-core:$ver.flyway",
+            hikaricp                     : "com.zaxxer:HikariCP:$ver.hikaricp",
+            mybatis                      : "org.mybatis:mybatis:$ver.mybatis",
+            mybatis_spring               : "org.mybatis:mybatis-spring:$ver.mybatis_spring",
+            pagehelper                   : "com.github.pagehelper:pagehelper:$ver.pagehelper",
+            flyway_core                  : "org.flywaydb:flyway-core:$ver.flyway",
 
-            jackson_module_afterburner: "com.fasterxml.jackson.module:jackson-module-afterburner:$ver.jackson",
-            jackson_annotations       : "com.fasterxml.jackson.core:jackson-annotations:$ver.jackson",
-            jackson_core              : "com.fasterxml.jackson.core:jackson-core:$ver.jackson",
-            jackson_databind          : "com.fasterxml.jackson.core:jackson-databind:$ver.jackson",
-            okhttp                    : "com.squareup.okhttp3:okhttp:$ver.okhttp",
-            commons_lang3             : "org.apache.commons:commons-lang3:$ver.commons_lang3",
+            jackson_module_afterburner   : "com.fasterxml.jackson.module:jackson-module-afterburner:$ver.jackson",
+            jackson_annotations          : "com.fasterxml.jackson.core:jackson-annotations:$ver.jackson",
+            jackson_core                 : "com.fasterxml.jackson.core:jackson-core:$ver.jackson",
+            jackson_databind             : "com.fasterxml.jackson.core:jackson-databind:$ver.jackson",
+            okhttp                       : "com.squareup.okhttp3:okhttp:$ver.okhttp",
+            commons_lang3                : "org.apache.commons:commons-lang3:$ver.commons_lang3",
 
-            propdeps_plugin           : "io.spring.gradle:propdeps-plugin:$ver.propdeps_plugin",
+            propdeps_plugin              : "io.spring.gradle:propdeps-plugin:$ver.propdeps_plugin",
 
 
-            springfox_swagger2        : "io.springfox:springfox-swagger2:$ver.springfox_swagger2",
-            springfox_swagger_ui      : "io.springfox:springfox-swagger-ui:$ver.springfox_swagger_ui",
+            springfox_swagger2           : "io.springfox:springfox-swagger2:$ver.springfox_swagger2",
+            springfox_swagger_ui         : "io.springfox:springfox-swagger-ui:$ver.springfox_swagger_ui",
 
-            java_jwt                  : "com.auth0:java-jwt:$ver.java_jwt",
+            java_jwt                     : "com.auth0:java-jwt:$ver.java_jwt",
 
-            caffeine                  : "com.github.ben-manes.caffeine:caffeine:$ver.caffeine",
+            caffeine                     : "com.github.ben-manes.caffeine:caffeine:$ver.caffeine",
+
+            shiro_core                   : "org.apache.shiro:shiro-core:$ver.shiro",
+            shiro_spring                 : "org.apache.shiro:shiro-spring:$ver.shiro",
 
     ]
 
