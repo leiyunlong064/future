@@ -22,5 +22,5 @@ public interface UserRoleMapper {
     UserRole getUserRoleById(@Param("userRoleId") Long userRoleId);
 
     @SelectProvider(type = UserRoleSqlProvider.class, method = "findByUserId")
-    List<UserRole> getUserRolesByRoleId(@Param("userId") Long userId);
+    List<UserRole> getUserRolesByUserId(@Param("userId") Long userId);
 }

@@ -65,7 +65,7 @@ public class LoginService {
         return MD5Util.encrypt(text);
     }
 
-    private boolean checkPassword(String password, User user){
+    public boolean checkPassword(String password, User user){
         String text = user.getSalt() + password;
         return MD5Util.encrypt(text).equals(user.getPassword());
     }
