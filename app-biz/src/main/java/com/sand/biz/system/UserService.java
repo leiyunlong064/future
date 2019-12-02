@@ -12,15 +12,23 @@ import java.util.List;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private AuthService authService;
 
-    public Long create(User user) {
+    public Long createUser(String mobile, String password, String name){
+        User user = authService.register(mobile,password,name);
+        return user.getUserId();
+    }
+
+    public User create(User user) {
         user.setStatus(UserStatus.ACTIVE);
         if (userMapper.save(user) != 1) {
             throw new RuntimeException("创建用户失败");
         }
-        return user.getUserId();
+        return getUser(user.getUserId());
     }
 
     public Long update(User user) {

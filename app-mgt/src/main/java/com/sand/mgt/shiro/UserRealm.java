@@ -1,7 +1,7 @@
 package com.sand.mgt.shiro;
 
 import com.sand.biz.exception.LoginException;
-import com.sand.biz.system.LoginService;
+import com.sand.biz.system.AuthService;
 import com.sand.biz.system.UserService;
 import com.sand.common.entity.User;
 import com.sand.common.enums.UserStatus;
@@ -20,7 +20,7 @@ public class UserRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
     @Autowired
-    private LoginService loginService;
+    private AuthService authService;
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         return null;
@@ -43,7 +43,7 @@ public class UserRealm extends AuthorizingRealm {
             throw new UnknownAccountException("user not exist");
         }
 
-        if(!loginService.checkPassword(password, user)){
+        if(!authService.checkPassword(password, user)){
             throw new IncorrectCredentialsException("password is wrong");
         }
         if(user.getStatus() != UserStatus.ACTIVE){

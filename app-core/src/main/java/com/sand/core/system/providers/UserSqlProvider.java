@@ -12,10 +12,10 @@ public class UserSqlProvider {
     public String save(User user) {
         return new SQL()
                 .INSERT_INTO(getEntityTable())
-                .VALUES("USER_ID", "#{userId}")
                 .VALUES("NAME", "#{name}")
                 .VALUES("MOBILE", "#{mobile}")
                 .VALUES("PASSWORD", "#{password}")
+                .VALUES("SALT", "#{salt}")
                 .VALUES_IF("STATUS", "#{status}", user.getStatus() != null)
                 .VALUES_IF("CREATED_TIME", "#{createTime}", user.getCreateTime() != null)
                 .VALUES_IF("UPDATE_TIME", "#{updateTime}", user.getUpdateTime() != null)

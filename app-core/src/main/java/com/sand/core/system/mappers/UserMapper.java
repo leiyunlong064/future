@@ -3,15 +3,13 @@ package com.sand.core.system.mappers;
 import com.sand.common.entity.User;
 import com.sand.core.system.providers.UserSqlProvider;
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Mapper
-@Repository
 public interface UserMapper {
     @InsertProvider(type = UserSqlProvider.class, method = "save")
-    @Options(useGeneratedKeys = true, keyColumn = "userId", keyProperty = "userId")
+    @Options(useGeneratedKeys = true, keyColumn = "user_id", keyProperty = "userId")
     int save(User user);
 
     @UpdateProvider(type = UserSqlProvider.class, method = "update")

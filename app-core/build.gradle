@@ -18,9 +18,9 @@ dependencies {
     api project(':app-common')
 }
 
-task copyBuildJar(type: Copy){
-    from "$rootDir/api-core/build/libs/app-core.jar"
-    into "$rootDir/flay/jars"
+task copyBuildJar(type: Copy) {
+    from "$rootDir/app-core/build/libs/app-core.jar"
+    into "$rootDir/flyway/jars/"
 }
 
 build.finalizedBy copyBuildJar

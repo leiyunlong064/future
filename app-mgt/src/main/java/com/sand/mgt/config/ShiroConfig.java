@@ -4,6 +4,7 @@ import com.sand.mgt.shiro.UserRealm;
 import org.apache.shiro.session.SessionListener;
 import org.apache.shiro.session.mgt.eis.MemorySessionDAO;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
+import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
@@ -19,6 +20,11 @@ import java.util.LinkedHashMap;
 public class ShiroConfig {
     @Value("${server.session-timeout}")
     private int sessionTimeout;
+
+    @Bean
+    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
+        return new LifecycleBeanPostProcessor();
+    }
 
     @Bean
     public UserRealm userRealm(){
@@ -45,7 +51,7 @@ public class ShiroConfig {
     public DefaultWebSecurityManager securityManager(){
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(userRealm());
-        securityManager.setSessionManager(securityManager);
+        securityManager.setSessionManager(sessionManager());
         return securityManager;
     }
 

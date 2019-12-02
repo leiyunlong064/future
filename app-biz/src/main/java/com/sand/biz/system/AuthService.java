@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
-public class LoginService {
+public class AuthService {
 
     private Cache tokenCache;
 
@@ -26,7 +26,12 @@ public class LoginService {
         tokenCache = cacheManager.getCache(CacheConfig.TOKEN_CACHE);
     }
 
-    public synchronized String register(String mobile, String password){
+    public String registerAndLogin(String mobile, String password, String name){
+        User user = this.register(mobile, password, name);
+        return JwtUtils.generateJWT(user.getUserId().toString());
+    }
+
+    public synchronized User register(String mobile, String password, String name){
         User user = userService.getUserByMobile(mobile);
         if(user != null){
             throw new RuntimeException("The mobile has already been registered!");
@@ -34,11 +39,11 @@ public class LoginService {
         String salt = generateSalt(mobile);
         String hash = generateHash(salt, password);
         user = new User()
+                .setName(name)
                 .setMobile(mobile)
                 .setPassword(hash)
                 .setSalt(salt);
-        userService.create(user);
-        return JwtUtils.generateJWT(user.getUserId().toString());
+        return userService.create(user);
     }
 
     public String login(String mobile, String password){

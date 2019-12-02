@@ -19,7 +19,7 @@ public class ApiApplication {
         SpringApplication app = new SpringApplication(ApiConfig.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
-        System.out.println("System is running!");
+        System.out.println("app-api is running!");
     }
 
 }

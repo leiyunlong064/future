@@ -25,7 +25,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource(value = {"classpath:core/database.properties"}, ignoreResourceNotFound = true)
 @PropertySource(value = {"file://${CONFIG_HOME}/database.properties"}, ignoreResourceNotFound = true)
-@MapperScan(basePackages = "com.future.core", annotationClass = Mapper.class)
+@MapperScan(basePackages = "com.sand.core", annotationClass = Mapper.class)
 public class RepoConfig {
 
     @Autowired

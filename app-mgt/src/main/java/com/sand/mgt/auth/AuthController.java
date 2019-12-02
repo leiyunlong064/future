@@ -1,5 +1,7 @@
 package com.sand.mgt.auth;
 
+import com.sand.biz.system.AuthService;
+import com.sand.biz.system.UserService;
 import com.sand.common.utils.ResponseEntity;
 import com.sand.mgt.utils.ShiroUtils;
 import org.apache.shiro.SecurityUtils;
@@ -7,6 +9,7 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,11 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class AuthController {
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private AuthService authService;
 
     @RequestMapping("/login")
     public ModelAndView getLoginPage(){
