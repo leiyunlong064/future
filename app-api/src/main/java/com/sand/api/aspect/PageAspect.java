@@ -29,8 +29,9 @@ public class PageAspect {
     public void collectPointcut(){}
 
     @Around("collectPointcut()")
-    public void collect(ProceedingJoinPoint joinPoint){
+    public Object collect(ProceedingJoinPoint joinPoint){
         logger.info("HttpAspect start");
+        Object resp = null;
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         PageCollection pageCollection = new PageCollection();
@@ -46,11 +47,12 @@ public class PageAspect {
         //记录传递的参数
         logger.info("args={}",joinPoint.getArgs());
         try {
-            joinPoint.proceed();
+            resp = joinPoint.proceed();
         } catch (Throwable throwable) {
             logger.error("execute joinPoint error");
         }
         pageCollection.setEndTime(new Date());
         pageCollectionService.create(pageCollection);
+        return resp;
     }
 }
